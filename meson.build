@@ -1,7 +1,7 @@
 project('cracking', 'cpp',
   version : '0.1',
   default_options : ['warning_level=3',
-                     'cpp_std=c++14'])
+                     'cpp_std=c++20'])
 
 catch_lib = subproject('catch2').get_variable('catch2_with_main_dep')
 findresult = run_command('find', 'src', '-name', '[0-9][0-9]-*.cpp', check : true)
