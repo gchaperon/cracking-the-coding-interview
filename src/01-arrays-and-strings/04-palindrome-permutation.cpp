@@ -5,7 +5,7 @@
 #include <catch2/catch_test_macros.hpp>
 
 
-bool is_ascii(unsigned char c) {
+bool is_ascii_letter(unsigned char c) {
 	return (c >= 65 && c <= 90) || (c >= 97 && c <= 122);
 }
 
@@ -16,7 +16,7 @@ bool is_palindrome_permutation(std::string str) {
 
 	int nchars = 0;
 	for (unsigned char c: str) {
-		if (is_ascii(c)) {
+		if (is_ascii_letter(c)) {
 			map[c]++;
 			nchars++;
 		}
@@ -42,7 +42,7 @@ bool is_palindrome_permutation(std::string str) {
 
 
 TEST_CASE( "Finds Palindrome Permutations" ) {
-	REQUIRE( is_palindrome_permutation("Tact Coa") ); // taco cat; example from the bok
+	REQUIRE( is_palindrome_permutation("Tact Coa") ); // taco cat; example from the book
 	REQUIRE( is_palindrome_permutation("aancaa aa am  aalpmannnpl") ); // A man, a plan, a canal: Panama!
 	REQUIRE( is_palindrome_permutation("nna aalapp caalma mnaaa  n") ); // A man, a plan, a canal: Panama!
 	REQUIRE( is_palindrome_permutation(" appanaaa a lmam cnaanlna") ); // A man, a plan, a canal: Panama!
