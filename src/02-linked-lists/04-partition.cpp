@@ -148,7 +148,7 @@ TEST_CASE( "is_partitioned works" ) {
 	delete_list(l);
 }
 
-TEST_CASE( "converts to multiset" ) {
+TEST_CASE( "Converts to multiset" ) {
 	Node<int> *l = make_list(1, 2, 3, 4, 5);
 	REQUIRE(to_multiset(l) == std::unordered_multiset{1, 2, 3, 4, 5} );
 	delete_list(l);

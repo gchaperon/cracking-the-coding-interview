@@ -1,5 +1,7 @@
+#include <stack>
 #include <iostream>
 #include <concepts>
+#include <catch2/catch_test_macros.hpp>
 
 
 // begin linked list node definition
@@ -68,3 +70,63 @@ void delete_list(Node<T>* head) {
 	}
 }
 // end linked list node definition
+
+
+
+bool is_palindrome(Node<char> *head) {
+	int length = 0, i;
+	Node<char> *index;
+	for (index = head; index; index=index->next) length++;
+
+	std::stack<char> stack;
+	// store first half
+	for (i=0, index=head; i < length / 2; i++, index=index->next)
+		stack.push(index->data);
+	// skip mid element if length is odd
+	if (length%2 == 1)
+		index = index->next;
+	// check last half, popping from stack
+	for (i=0; i<length/2; i++, index=index->next, stack.pop())
+		if (index->data != stack.top())
+			return false;
+	return true;
+}
+
+TEST_CASE( "Is palindrome" ) {
+	Node<char> *l;
+	l = make_list<char>();
+	REQUIRE( is_palindrome(l) );
+	delete_list(l);
+
+	l = make_list('a');
+	REQUIRE( is_palindrome(l) );
+	delete_list(l);
+
+	l = make_list('a', 'a');
+	REQUIRE( is_palindrome(l) );
+	delete_list(l);
+
+	l = make_list('a', 'b');
+	REQUIRE( !is_palindrome(l) );
+	delete_list(l);
+
+	l = make_list('a', 'b', 'a');
+	REQUIRE( is_palindrome(l) );
+	delete_list(l);
+
+	l = make_list('a', 'b', 'b', 'a');
+	REQUIRE( is_palindrome(l) );
+	delete_list(l);
+
+	l = make_list('a', 'a', 'c', 'c', 'b', 'c', 'c', 'a', 'a');
+	REQUIRE( is_palindrome(l) );
+	delete_list(l);
+
+	l = make_list('a', 'b', 'c');
+	REQUIRE( !is_palindrome(l) );
+	delete_list(l);
+
+	l = make_list('a', 'a', 'c', 'b', 'c', 'c', 'a', 'a');
+	REQUIRE( !is_palindrome(l) );
+	delete_list(l);
+}
