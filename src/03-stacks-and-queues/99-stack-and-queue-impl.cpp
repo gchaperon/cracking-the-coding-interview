@@ -1,4 +1,3 @@
-#include <iostream>
 #include <catch2/catch_test_macros.hpp>
 
 template<typename T>
@@ -105,24 +104,23 @@ struct Queue {
 
 
 TEST_CASE( "Queue works" ) {
-	Queue<int> stack;
-	REQUIRE( stack.isEmpty() );
+	Queue<int> queue;
+	REQUIRE( queue.isEmpty() );
 
-	stack.add(1);
-	REQUIRE( stack.peek() == 1 );
-	REQUIRE( !stack.isEmpty() );
-	std::cout << "hi!" << std::endl;
-	stack.add(2);
-	stack.add(4);
-	stack.add(123);
-	REQUIRE( stack.peek() == 1 );
-	stack.remove();
-	REQUIRE( stack.peek() == 2 );
-	stack.remove();
-	REQUIRE( stack.peek() == 4 );
-	stack.remove();
-	REQUIRE( stack.peek() == 123 );
-	stack.remove();
-	REQUIRE( stack.isEmpty() );
+	queue.add(1);
+	REQUIRE( queue.peek() == 1 );
+	REQUIRE( !queue.isEmpty() );
+	queue.add(2);
+	queue.add(4);
+	queue.add(123);
+	REQUIRE( queue.peek() == 1 );
+	queue.remove();
+	REQUIRE( queue.peek() == 2 );
+	queue.remove();
+	REQUIRE( queue.peek() == 4 );
+	queue.remove();
+	REQUIRE( queue.peek() == 123 );
+	queue.remove();
+	REQUIRE( queue.isEmpty() );
 
 }
