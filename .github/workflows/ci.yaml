@@ -19,3 +19,11 @@ jobs:
     - name: Install ninja-build
       run: sudo apt-get install ninja-build -y
 
+    - name: Install meson-build
+      run: pipx install meson
+    
+    - name: Setup xc
+      uses: joerdav/setup-xc@v0
+
+    - name: Run tests
+      run: xc test
