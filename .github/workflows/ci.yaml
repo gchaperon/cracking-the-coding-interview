@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: Check out code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       
     - name: Install ninja-build
       run: sudo apt-get install ninja-build -y
@@ -23,7 +23,7 @@ jobs:
       run: pipx install meson
     
     - name: Setup xc
-      uses: joerdav/setup-xc@v0
-
+      uses: joerdav/setup-xc@v0.0.2
+            
     - name: Run tests
       run: xc test
