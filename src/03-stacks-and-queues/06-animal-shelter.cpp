@@ -33,9 +33,19 @@ struct ShelterQueue {
 	}
 
 	Animal dequeueAny() {
-		auto &queue = (std::get<1>(dogs.front()) < std::get<1>(cats.front())) ? dogs : cats;
-		Animal animal = std::get<0>(queue.front());
-		queue.pop();
+		std::queue<std::pair<Animal, size_t>> *queue;
+		if (dogs.empty() && !cats.empty()) {
+			queue = &cats;
+		} else if (!dogs.empty() && cats.empty()) {
+			queue = &dogs;
+		} else if (std::get<1>(dogs.front()) < std::get<1>(cats.front())) {
+			queue = &dogs;
+		} else {
+			queue = &cats;
+		}
+
+		Animal animal = std::get<0>(queue->front());
+		queue->pop();
 		return animal;
 	};
 
@@ -52,23 +62,26 @@ struct ShelterQueue {
 	};
 
 	bool isEmpty() {
-		return false;
+		return cats.empty() && dogs.empty();
 	}
 };
 
 
 TEST_CASE( "Test Shelter Queue" ) {
 	ShelterQueue queue;
+	REQUIRE( queue.isEmpty() );
 
 	queue.enqueue(Animal{Type::Dog, "rex"});
 	REQUIRE( queue.dequeueAny().name == "rex" );
 	queue.enqueue(Animal{Type::Dog, "rex"});
 	REQUIRE( queue.dequeueDog().name == "rex" );
+	REQUIRE( queue.isEmpty() );
 
 	queue.enqueue(Animal{Type::Cat, "misifu"});
 	REQUIRE( queue.dequeueAny().name == "misifu" );
 	queue.enqueue(Animal{Type::Cat, "misifu"});
 	REQUIRE( queue.dequeueCat().name == "misifu" );
+	REQUIRE( queue.isEmpty() );
 
 	queue.enqueue(Animal{Type::Dog, "rex"});
 	queue.enqueue(Animal{Type::Dog, "max"});
@@ -76,6 +89,7 @@ TEST_CASE( "Test Shelter Queue" ) {
 	REQUIRE( queue.dequeueAny().name == "rex" );
 	REQUIRE( queue.dequeueAny().name == "max" );
 	REQUIRE( queue.dequeueAny().name == "misifu" );
+	REQUIRE( queue.isEmpty() );
 
 	std::vector<std::pair<Type, std::string>> animals {
 		{Type::Dog, "dog 1"},
@@ -94,4 +108,5 @@ TEST_CASE( "Test Shelter Queue" ) {
 	REQUIRE( queue.dequeueDog().name == "dog 3" );
 	REQUIRE( queue.dequeueAny().name == "cat 2" );
 	REQUIRE( queue.dequeueCat().name == "cat 3" );
+	REQUIRE( queue.isEmpty() );
 }
