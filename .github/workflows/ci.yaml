@@ -15,18 +15,14 @@ jobs:
     steps:
     - name: Check out code
       uses: actions/checkout@v4
-      
-    - name: Install ninja-build and ccache
-      run: sudo apt-get install ccache ninja-build -y
 
-    - name: Install meson-build
-      run: pipx install meson
-    
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        cache: 'pip'
+      
     - name: Setup xc
       uses: joerdav/setup-xc@v0.0.2
 
-    - name: ccache
-      uses: hendrikmuhs/ccache-action@v1.2
-            
     - name: Run tests
-      run: xc test
+      run: xc check-deps

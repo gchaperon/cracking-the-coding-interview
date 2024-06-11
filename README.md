@@ -3,7 +3,6 @@
 # cracking-the-coding-interview
 My solutions for the book Cracking the Coding Interview, using Python. 
 
-<!---
 # Tasks
 ## check-deps
 Check that all dependencies are present in the environment.
@@ -11,30 +10,9 @@ Check that all dependencies are present in the environment.
 run: once
 
 ```shell
-command -v c++
-command -v ninja
-command -v meson
+command -v python
+command -v pip
 ```
-
-## setup
-Setup `meson` build directory.
-
-run: once
-requires: check-deps
-
-```
-meson setup build
-```
-
-## test
-Run all tests.
-
-requires: setup
-
-```
-meson test -C build
-```
---->
 
 # Notes
 1. The `legacy` dir is where I've stored an older version of this project. Back
