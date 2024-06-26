@@ -24,5 +24,8 @@ jobs:
     - name: Setup xc
       uses: joerdav/setup-xc@v0.0.2
 
+    - name: Install pytest
+      run: pip install pytest
+
     - name: Run tests
       run: xc check-deps
