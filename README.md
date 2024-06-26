@@ -12,6 +12,14 @@ run: once
 ```shell
 command -v python
 command -v pip
+command -v pytest
+```
+
+## test
+Run the tests for each exercise.
+
+```shell
+pytest
 ```
 
 # Notes
