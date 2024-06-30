@@ -31,6 +31,7 @@ def palindrome_permutation(value: str) -> bool:
 
 # ******************** Tests ********************
 
+
 def test_palindrome_permutation() -> None:
     assert palindrome_permutation("Tact Coa")
     assert palindrome_permutation("a")

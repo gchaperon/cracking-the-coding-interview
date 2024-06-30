@@ -5,6 +5,7 @@ import dataclasses
 
 T = tp.TypeVar("T")
 
+
 @dataclasses.dataclass
 class Node(tp.Generic[T]):
     value: T

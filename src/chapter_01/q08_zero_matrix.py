@@ -1,7 +1,8 @@
 import typing as tp
 import itertools
 
-Matrix:tp.TypeAlias = list[list[int]]
+Matrix: tp.TypeAlias = list[list[int]]
+
 
 def zero_matrix(matrix: Matrix) -> Matrix:
     n = len(matrix)
