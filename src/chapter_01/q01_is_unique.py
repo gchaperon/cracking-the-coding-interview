@@ -22,7 +22,7 @@ def is_unique_no_struct(value: str) -> bool:
     return True
 
 
-# ******************** Tests ******************** 
+# ******************** Tests ********************
 
 def _test_unique_fun(fun: tp.Callable[[str], bool]) -> None:
     assert fun("")

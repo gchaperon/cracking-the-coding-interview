@@ -18,7 +18,7 @@ def one_away(left: str, right: str) -> bool:
             return insert or remove or replace
     return True
 
-# ******************** Tests ******************** 
+# ******************** Tests ********************
 
 def test_one_away() -> None:
     assert one_away("pale", "ple")

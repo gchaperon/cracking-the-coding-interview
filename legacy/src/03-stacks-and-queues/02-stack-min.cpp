@@ -12,7 +12,7 @@ struct MinStack {
 		if (value == mins.top())
 			mins.pop();
 	}
-	
+
 	void push(T value) {
 		data.push(value);
 		if (mins.empty() || value <= mins.top())

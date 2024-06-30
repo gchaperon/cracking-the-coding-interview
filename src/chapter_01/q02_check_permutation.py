@@ -9,7 +9,7 @@ def is_permutation(left: str, right: str) -> bool:
     return collections.Counter(left) == collections.Counter(right)
 
 
-# ******************** Tests ******************** 
+# ******************** Tests ********************
 def test_is_permutation() -> None:
     assert is_permutation("", "")
     assert is_permutation("a string is a permutation of itself", "a string is a permutation of itself")

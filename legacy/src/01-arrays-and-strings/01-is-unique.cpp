@@ -28,4 +28,4 @@ TEST_CASE( "All unique" ) {
 		REQUIRE( !impl("hola que tal") );
 		REQUIRE( !impl("abcdee") );
 	}
-}	
+}

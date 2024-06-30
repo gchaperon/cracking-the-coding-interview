@@ -7,7 +7,7 @@ template<typename T>
 struct SetOfStacks {
 	int maxheight;
 	std::stack<std::stack<T>> stacks{};
-	
+
 
 	void pop() {
 		stacks.top().pop();
@@ -77,7 +77,7 @@ template<typename T>
 struct SetOfStacksPopIndex {
 	int maxheight;
 	std::vector<std::stack<T>> stacks{};
-	
+
 	void pop() {
 		stacks.back().pop();
 		if (stacks.back().empty())

@@ -1,5 +1,4 @@
 name: CI
-
 on:
   push:
     branches:
@@ -7,25 +6,19 @@ on:
   pull_request:
     branches:
       - master
-
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Check out code
-      uses: actions/checkout@v4
-
-    - name: Setup Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.12'
-      
-    - name: Setup xc
-      uses: joerdav/setup-xc@v0.0.2
-
-    - name: Install pytest
-      run: pip install pytest
-
-    - name: Run tests
-      run: xc check-deps
+      - name: Check out code
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Setup xc
+        uses: joerdav/setup-xc@v0.0.2
+      - name: Install pytest
+        run: pip install pytest
+      - name: Run tests
+        run: xc check-deps

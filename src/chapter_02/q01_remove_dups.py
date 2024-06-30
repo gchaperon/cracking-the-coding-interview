@@ -29,7 +29,7 @@ def remove_dups(head: ll.Node[int]) -> ll.Node[int]:
     return head
 
 
-# ******************** Tests ******************** 
+# ******************** Tests ********************
 def test_remove_dups() -> None:
     assert remove_dups(ll.make_list([])) == ll.make_list([])
     assert remove_dups(ll.make_list([1, 1])) == ll.make_list([1])

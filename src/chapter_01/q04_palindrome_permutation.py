@@ -29,7 +29,7 @@ def palindrome_permutation(value: str) -> bool:
         return odd_count == 1
 
 
-# ******************** Tests ******************** 
+# ******************** Tests ********************
 
 def test_palindrome_permutation() -> None:
     assert palindrome_permutation("Tact Coa")

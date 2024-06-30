@@ -27,7 +27,7 @@ Matrix zero_matrix(Matrix matrix) {
 	}
 
 	Matrix out(matrix);
-	for (size_t i : marked_rows) 
+	for (size_t i : marked_rows)
 		for (size_t j = 0; j < m; j++)
 			out[i][j] = 0;
 
@@ -89,4 +89,3 @@ TEST_CASE( "Zeroes" ) {
                         			{0, 0, 0, 0},
                         			{0, 0, 0, 0}} );
 }
-

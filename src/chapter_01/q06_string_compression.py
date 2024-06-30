@@ -24,7 +24,7 @@ def compress_to_easy(string:str) -> str:
     compressed = "".join(f"{key}{len(list(group))}" for key, group in itertools.groupby(string))
     return compressed if len(compressed) < len(string) else string
 
-# ******************** Tests ******************** 
+# ******************** Tests ********************
 def _test_compress_fn(function: tp.Callable[[str], str]) -> None:
     assert function("") == ""
     assert function("abcd") == "abcd"
@@ -38,4 +38,3 @@ def test_compress() -> None:
 
 def test_compress_to_easy() -> None:
     _test_compress_fn(compress_to_easy)
-

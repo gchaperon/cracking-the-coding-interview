@@ -20,7 +20,7 @@ def urlify(value: list[str], length:int) -> list[str]:
     return value
 
 
-# ******************** Tests ******************** 
+# ******************** Tests ********************
 
 def test_urlify_book() -> None:
     input_str = list("Mr 3ohn Smith") + [""] * 4
