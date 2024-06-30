@@ -1,7 +1,7 @@
 import linkedlist as ll
 
 
-def remove_dups(head: ll.Node[int]) -> ll.Node[int]:
+def remove_dups(head: ll.Node[int] | None) -> ll.Node[int] | None:
     """Removes the duplicates in a linked list.
 
     Has O(n) time and space complexity.
@@ -12,7 +12,7 @@ def remove_dups(head: ll.Node[int]) -> ll.Node[int]:
     """
     seen: set[int] = set()
 
-    def remove_next(node: ll.Node[int]) -> None:
+    def remove_next(node: ll.Node[int] | None) -> None:
         if node is None or node.next is None:
             return
         node.next = node.next.next
