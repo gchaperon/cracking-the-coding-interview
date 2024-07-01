@@ -1,6 +1,6 @@
-import typing as tp
-import string
 import itertools
+import string
+import typing as tp
 
 
 def is_unique(value: str) -> bool:

@@ -1,5 +1,5 @@
-import itertools
 import functools
+import itertools
 import typing as tp
 
 Matrix: tp.TypeAlias = list[list[int]]
