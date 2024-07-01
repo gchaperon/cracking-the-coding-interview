@@ -1,5 +1,5 @@
-import typing as tp
 import itertools
+import typing as tp
 
 
 def compress(string: str) -> str:
