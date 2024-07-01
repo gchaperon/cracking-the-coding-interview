@@ -1,3 +1,5 @@
+[tool.ruff]
+extend-select = ["I"]
 [tool.mypy]
 strict = true
 
