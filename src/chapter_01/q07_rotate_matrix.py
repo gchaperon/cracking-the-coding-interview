@@ -14,6 +14,7 @@ def ceildiv(m: int, n: int) -> int:
     """Integer division, but rounded up."""
     return (m + n - 1) // n
 
+
 def rotate_matrix(matrix: Matrix) -> Matrix:
     n = len(matrix)
     rot_ = functools.partial(rot, n=n)
@@ -33,6 +34,7 @@ def rotate_matrix(matrix: Matrix) -> Matrix:
 
 # ******************** Tests ********************
 
+
 def test_rot() -> None:
     assert rot(0, 0, 1) == (0, 0)
     assert rot(0, 0, 2) == (0, 1)
@@ -41,6 +43,7 @@ def test_rot() -> None:
     assert rot(2, 1, 3) == (1, 0)
     assert rot(1, 0, 4) == (0, 2)
     assert rot(2, 3, 4) == (3, 1)
+
 
 def test_rotate_matrix() -> None:
     assert rotate_matrix([]) == []

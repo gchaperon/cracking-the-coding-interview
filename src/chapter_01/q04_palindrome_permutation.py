@@ -9,11 +9,11 @@ def palindrome_permutation(value: str) -> bool:
     """
     sanitized = [c.lower() for c in value if c != " "]
 
-    def is_even(n):
+    def is_even(n: int) -> bool:
         return n % 2 == 0
 
     def counter(string: list[str]) -> dict[str, int]:
-        out = {}
+        out: dict[str, int] = {}
         for c in string:
             if c in out:
                 out[c] += 1
@@ -29,7 +29,8 @@ def palindrome_permutation(value: str) -> bool:
         return odd_count == 1
 
 
-# ******************** Tests ******************** 
+# ******************** Tests ********************
+
 
 def test_palindrome_permutation() -> None:
     assert palindrome_permutation("Tact Coa")

@@ -26,7 +26,7 @@ bool is_palindrome_permutation(std::string str) {
 		auto is_value_odd = [](const std::pair<unsigned char, int>& pair) {
 			return pair.second % 2 == 1;
 		};
-		std::unordered_map<unsigned char, int>::iterator it = 
+		std::unordered_map<unsigned char, int>::iterator it =
 			std::find_if(begin(map), end(map), is_value_odd);
 		if (it == end(map)) {
 			return false;
@@ -52,5 +52,5 @@ TEST_CASE( "Finds Palindrome Permutations" ) {
 	REQUIRE( !is_palindrome_permutation("Tactr Coa") );
 	REQUIRE( !is_palindrome_permutation("zijfadm") );
 	REQUIRE( !is_palindrome_permutation("opsmgpiukxhdwdcvc") );
-	REQUIRE( !is_palindrome_permutation("eb qgyhm nbyd") );  
+	REQUIRE( !is_palindrome_permutation("eb qgyhm nbyd") );
 }

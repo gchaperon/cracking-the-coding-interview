@@ -1,6 +1,7 @@
 import linkedlist as ll
 
-def remove_dups(head: ll.Node[int]) -> ll.Node[int]:
+
+def remove_dups(head: ll.Node[int] | None) -> ll.Node[int] | None:
     """Removes the duplicates in a linked list.
 
     Has O(n) time and space complexity.
@@ -9,9 +10,9 @@ def remove_dups(head: ll.Node[int]) -> ll.Node[int]:
     complexity by iterating over the entire array for each value, checking if
     it's already present in the array and removing it accordingly.
     """
-    seen:set[int] = set()
+    seen: set[int] = set()
 
-    def remove_next(node: ll.Node[int]) -> None:
+    def remove_next(node: ll.Node[int] | None) -> None:
         if node is None or node.next is None:
             return
         node.next = node.next.next
@@ -29,11 +30,13 @@ def remove_dups(head: ll.Node[int]) -> ll.Node[int]:
     return head
 
 
-# ******************** Tests ******************** 
+# ******************** Tests ********************
 def test_remove_dups() -> None:
     assert remove_dups(ll.make_list([])) == ll.make_list([])
     assert remove_dups(ll.make_list([1, 1])) == ll.make_list([1])
     assert remove_dups(ll.make_list(range(5))) == ll.make_list(range(5))
 
     assert remove_dups(ll.make_list([1, 2, 3, 1])) == ll.make_list([1, 2, 3])
-    assert remove_dups(ll.make_list([3, 5, 1, 1, 5, 5, 2, 3, 3, 3])) == ll.make_list([3, 5, 1, 2])
+    assert remove_dups(ll.make_list([3, 5, 1, 1, 5, 5, 2, 3, 3, 3])) == ll.make_list(
+        [3, 5, 1, 2]
+    )

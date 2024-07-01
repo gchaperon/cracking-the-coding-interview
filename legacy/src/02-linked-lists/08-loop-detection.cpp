@@ -99,7 +99,7 @@ TEST_CASE( "Finds loop" ) {
 	REQUIRE( result == at(2, list) );
 	at(4, list)->next = nullptr;
 	delete_list(list);
-	
+
 	// list is full loop
 	list = make_list('a', 'b', 'c', 'd');
 	at(3, list)->next = at(0, list);

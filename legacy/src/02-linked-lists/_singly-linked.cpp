@@ -4,7 +4,7 @@
 
 // begin linked list node definition
 template<typename T>
-concept Streamable = 
+concept Streamable =
 	requires(std::ostream &os, T value) {
 		{ os << value } -> std::convertible_to<std::ostream &>;
 	};

@@ -125,7 +125,7 @@ TEST_CASE( "Finds intersection" ) {
 	delete_list(l1);
 	delete_list(l2);
 	delete_list(target);
-	
+
 	// two lists that don't intersect
 	l1 = make_list('a', 'b');
 	l2 = make_list('a', 'b', 'c', 'd');
@@ -135,7 +135,7 @@ TEST_CASE( "Finds intersection" ) {
 	delete_list(l1);
 	delete_list(l2);
 	delete_list(target);
-	
+
 	// same length, intersect early
 	l1 = make_list('a', 'b', 'c', 'd');
 	l2 = l1;
@@ -144,7 +144,7 @@ TEST_CASE( "Finds intersection" ) {
 	REQUIRE( listequal(result, target) );
 	delete_list(l1);
 	delete_list(target);
-	
+
 	// same length, intersect late
 	l1 = make_list('a', 'b', 'c', 'd');
 	l2 = make_list('e', 'f', 'g');
@@ -156,7 +156,7 @@ TEST_CASE( "Finds intersection" ) {
 	delete_list(l1);
 	delete_list(l2);
 	delete_list(target);
-	
+
 	// different lengths, intersect in middle of short
 	l1 = make_list('a', 'b', 'c');
 	l2 = make_list('d', 'e', 'f', 'g', 'e', 'h');

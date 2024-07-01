@@ -12,13 +12,15 @@ def one_away(left: str, right: str) -> bool:
         if i >= len(short) or (short[i] != long[i]):
             # check if by inserting, removing or replacing a character the
             # remainding strings are equal
-            insert = short[i:] == long[i + 1:]
-            remove = short[i+1:] == long[i:]
-            replace = short[i+1:] == long[i+1:]
+            insert = short[i:] == long[i + 1 :]
+            remove = short[i + 1 :] == long[i:]
+            replace = short[i + 1 :] == long[i + 1 :]
             return insert or remove or replace
     return True
 
-# ******************** Tests ******************** 
+
+# ******************** Tests ********************
+
 
 def test_one_away() -> None:
     assert one_away("pale", "ple")

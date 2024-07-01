@@ -8,7 +8,7 @@
 
 // begin linked list node definition
 template<typename T>
-concept Streamable = 
+concept Streamable =
 	requires(std::ostream &os, T value) {
 		{ os << value } -> std::convertible_to<std::ostream &>;
 	};
@@ -80,7 +80,7 @@ std::pair<int, int> divmod(int n, int m) {
 }
 
 Node<int> *sum_lists(Node<int> *h1, Node<int> *h2) {
-	Node<int> *anchor, *last, *head, *tail; 
+	Node<int> *anchor, *last, *head, *tail;
 	anchor = last = new Node<int>();
 	int ndata, carry = 0;
 
@@ -188,7 +188,7 @@ TEST_CASE( "Sums (reversed digits)" ) {
 	delete_list(l2);
 	delete_list(result);
 	delete_list(target);
-	
+
 	// Example of hint 95
 	l1 = make_list(9, 7, 8);
 	l2 = make_list(6, 8, 5);

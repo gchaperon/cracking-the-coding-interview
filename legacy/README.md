@@ -1,7 +1,7 @@
 [![xc compatible](https://xcfile.dev/badge.svg)](https://xcfile.dev)
 
 # cracking-the-coding-interview
-My solutions for the book Cracking the Coding Interview, using C++. 
+My solutions for the book Cracking the Coding Interview, using C++.
 
 # Tasks
 ## check-deps

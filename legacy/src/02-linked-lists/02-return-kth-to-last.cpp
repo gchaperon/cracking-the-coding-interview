@@ -5,7 +5,7 @@
 
 // begin linked list node definition
 template<typename T>
-concept Streamable = 
+concept Streamable =
 	requires(std::ostream &os, T value) {
 		{ os << value } -> std::convertible_to<std::ostream &>;
 	};
@@ -72,7 +72,7 @@ void delete_list(Node<T>* head) {
 int kth_to_last(unsigned int k, Node<int>* head) {
 	// I will use python convention of last element being arr[-1],
 	// so kth_to_last(1, {1, 2, 3}) == 3 and kth_to_last(3, {1, 2, 3}) == 1
-	
+
 	// clamp k to 1, else the algorithm fails
 	k = k ? k : 1;
 
@@ -99,7 +99,7 @@ TEST_CASE( "Returns kth to last" ) {
 	REQUIRE( kth_to_last(3, list) == 3 );
 	REQUIRE( kth_to_last(5, list) == 1 );
 	REQUIRE( kth_to_last(6, list) == 1 ); // clamps to ends, should throw error.
-	REQUIRE( kth_to_last(10, list) == 1 ); 
+	REQUIRE( kth_to_last(10, list) == 1 );
 	delete_list(list);
 
 	list = make_list(42);

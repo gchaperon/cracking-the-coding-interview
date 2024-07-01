@@ -64,4 +64,3 @@ TEST_CASE( "Sorts stack" ) {
 		REQUIRE( sorted(stack) );
 	}
 }
-

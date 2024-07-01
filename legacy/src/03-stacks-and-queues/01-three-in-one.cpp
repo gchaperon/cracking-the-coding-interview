@@ -86,13 +86,13 @@ TEST_CASE( "Fixed size" ) {
 	REQUIRE_THROWS( stacks.push(0, 'z') );
 	REQUIRE( stacks.isEmpty(1) );
 	REQUIRE( stacks.isEmpty(2) );
-	
+
 	// check peek + pop
 	REQUIRE( stacks.peek(0) == 'j' );
 	stacks.pop(0);
 	stacks.pop(0);
 	REQUIRE( stacks.peek(0) == 'h' );
-	
+
 
 	// push random elements to stacks independently, check peek
 	stacks.push(1, 'b');

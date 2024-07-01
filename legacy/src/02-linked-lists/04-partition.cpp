@@ -5,7 +5,7 @@
 
 // begin linked list node definition
 template<typename T>
-concept Streamable = 
+concept Streamable =
 	requires(std::ostream &os, T value) {
 		{ os << value } -> std::convertible_to<std::ostream &>;
 	};
@@ -187,7 +187,7 @@ TEST_CASE( "Partitions" ) {
 	partition(&l, x);
 	REQUIRE( is_partitioned(l, x) );
 	REQUIRE( items == to_multiset(l) );
-	delete_list(l);	
+	delete_list(l);
 
 	// test only right partition
 	l = make_list(3, 5, 8, 5, 10, 2, 1);
