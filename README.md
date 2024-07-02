@@ -12,7 +12,15 @@ run: once
 ```shell
 command -v python
 command -v pip
-command -v pytest
+```
+
+## configure
+Configure dev environment. This includes installing development and testing
+dependencies, and pre-commit hooks.
+
+```shell
+pip install pre-commit pytest mypy ruff
+pre-commit install
 ```
 
 ## test
