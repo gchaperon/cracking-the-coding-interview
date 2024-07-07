@@ -1,3 +1,6 @@
+[![GitHub License](https://img.shields.io/github/license/gchaperon/cracking-the-coding-interview)](https://github.com/gchaperon/cracking-the-coding-interview/blob/master/LICENSE)
+[![Actions status](https://github.com/gchaperon/cracking-the-coding-interview/workflows/CI/badge.svg)](https://github.com/gchaperon/cracking-the-coding-interview/actions?query=branch%3Amaster)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![xc compatible](https://xcfile.dev/badge.svg)](https://xcfile.dev)
 
 # cracking-the-coding-interview
