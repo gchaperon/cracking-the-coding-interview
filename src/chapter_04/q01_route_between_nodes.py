@@ -1,12 +1,11 @@
 import collections
-import typing as tp
 
 import pytest
 
-Graph: tp.TypeAlias = dict[str, list[str]]
+import graphs
 
 
-def reachable(graph: Graph, from_: str, to: str) -> bool:
+def reachable(graph: graphs.Graph[str], from_: str, to: str) -> bool:
     seen: set[str] = set()
     queue = collections.deque([from_])
     while queue:
@@ -22,9 +21,9 @@ def reachable(graph: Graph, from_: str, to: str) -> bool:
 
 # ******************** Tests ********************
 @pytest.fixture(name="graph")
-def fixture_graph() -> Graph:
+def fixture_graph() -> graphs.Graph[str]:
     """Graph depicted in assets/c04_q01_graph.svg"""
-    return dict(
+    return graphs.Graph(
         a=["b", "c"],
         b=[],
         c=[],
@@ -36,13 +35,13 @@ def fixture_graph() -> Graph:
     )
 
 
-def test_reachable(graph: Graph) -> None:
+def test_reachable(graph: graphs.Graph[str]) -> None:
     assert reachable(graph, "a", "c")
     assert reachable(graph, "d", "h")
     assert reachable(graph, "f", "e")
 
 
-def test_unreachable(graph: Graph) -> None:
+def test_unreachable(graph: graphs.Graph[str]) -> None:
     assert not reachable(graph, "b", "d")
     assert not reachable(graph, "b", "a")
     assert not reachable(graph, "f", "c")
