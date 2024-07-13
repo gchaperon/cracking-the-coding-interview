@@ -24,14 +24,14 @@ def reachable(graph: graphs.Graph[str], from_: str, to: str) -> bool:
 def fixture_graph() -> graphs.Graph[str]:
     """Graph depicted in assets/c04_q01_graph.svg"""
     return graphs.Graph(
-        a=["b", "c"],
-        b=[],
-        c=[],
-        d=["e"],
-        e=["d", "f", "g"],
-        f=["d"],
-        g=["e", "f", "h"],
-        h=["f"],
+        a={"b", "c"},
+        b=set(),
+        c=set(),
+        d={"e"},
+        e={"d", "f", "g"},
+        f={"d"},
+        g={"e", "f", "h"},
+        h={"f"},
     )
 
 

@@ -6,7 +6,7 @@ import typing as tp
 T = tp.TypeVar("T")
 
 
-class Graph(dict[T, list[T]], tp.Generic[T]):
+class Graph(dict[T, set[T]], tp.Generic[T]):
     pass
 
 
