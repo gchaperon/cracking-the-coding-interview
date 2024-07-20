@@ -37,6 +37,7 @@ def test_paths_with_sum() -> None:
 
     assert paths_with_sum(Node(1, Node(-1, Node(1, Node(-1)))), 0) == 4
 
+    # NOTE: see assets/ch04_q12.svg
     tree = Node(
         10,
         Node(

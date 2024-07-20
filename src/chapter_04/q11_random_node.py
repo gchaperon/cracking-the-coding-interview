@@ -163,7 +163,7 @@ def test_find() -> None:
 
 def test_get_random_nodes() -> None:
     tree = Tree()
-    # NOTE: See assets ch04_q11.svg
+    # NOTE: See assets/ch04_q11.svg
     for i in [3, 5, 7, 10, 15, 17, 20, 30]:
         tree.insert(i)
 
