@@ -22,7 +22,7 @@ def reachable(graph: graphs.Graph[str], from_: str, to: str) -> bool:
 # ******************** Tests ********************
 @pytest.fixture(name="graph")
 def fixture_graph() -> graphs.Graph[str]:
-    """Graph depicted in assets/c04_q01_graph.svg"""
+    # NOTE: See assets/ch04_q01.svg
     return graphs.Graph(
         a={"b", "c"},
         b=set(),

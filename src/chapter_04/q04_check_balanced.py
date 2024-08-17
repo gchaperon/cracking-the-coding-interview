@@ -26,7 +26,7 @@ def test_is_balanced() -> None:
     assert is_balanced(Node("a", Node("b")))
     assert not is_balanced(Node("a", None, Node("b", Node("c"))))
 
-    # See file assets/c04_q04_balanced.svg
+    # NOTE: See file assets/ch04_q04_balanced.svg
     assert is_balanced(
         Node(
             "a",
@@ -38,7 +38,7 @@ def test_is_balanced() -> None:
             Node("h", None, Node("i")),
         )
     )
-    # See file assets/c04_q04_inbalanced.svg
+    # NOTE: See file assets/ch04_q04_inbalanced.svg
     assert not is_balanced(
         Node(
             "a",

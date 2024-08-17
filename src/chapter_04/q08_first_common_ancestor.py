@@ -43,7 +43,7 @@ def test_first_common_ancestor() -> None:
     assert first_common_ancestor(Node("a", Node("b")), "a", "b") == "a"
     assert first_common_ancestor(Node("a", None, Node("b")), "a", "b") == "a"
 
-    # NOTE: see assets/ch4_q08.svg
+    # NOTE: see assets/ch04_q08.svg
     tree = Node(
         "a",
         Node(
