@@ -47,3 +47,19 @@ def test_stack_min() -> None:
     assert stack.min() == 1
     stack.pop()
     assert stack.min() == 3
+
+
+def test_stack_min_book() -> None:
+    stack = StackMin()
+    stack.push(5)
+    assert stack.min() == 5
+    stack.push(6)
+    assert stack.min() == 5
+    stack.push(3)
+    assert stack.min() == 3
+    stack.push(7)
+    assert stack.min() == 3
+    stack.pop()
+    assert stack.min() == 3
+    stack.pop()
+    assert stack.min() == 5
