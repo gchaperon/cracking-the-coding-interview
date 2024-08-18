@@ -31,6 +31,8 @@ def flip_bit_to_win(value: int) -> int:
 
     maxsum = max(potentialiter(value))
     if maxsum == bitlen(value):
+        # If there are only 1s in the integer, arbitrarily return the number of
+        # 1s
         return bitlen(value)
     return maxsum + 1
 
