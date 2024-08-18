@@ -1,4 +1,4 @@
-class Stacks:
+class FixedMultiStack:
     _array: list[int]
     _starts: list[int]
     _heads: list[int]
@@ -40,7 +40,7 @@ class Stacks:
 
 # ******************** Tests ********************
 def test_three_in_one() -> None:
-    stacks = Stacks([100] * 3)
+    stacks = FixedMultiStack([100] * 3)
     assert len(stacks) == 3
 
     stacks.push(0, 3)
