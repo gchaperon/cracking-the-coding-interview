@@ -20,25 +20,61 @@ def updatebit(n: int, i: int, value: bool) -> int:
 
 
 def next_smallest(n: int) -> int:
-    most_significant_zero = bitlen(n) - 1
-    while getbit(n, most_significant_zero) != 0:
-        most_significant_zero -= 1
+    i = 0
+    # skip first one block
+    while getbit(n, i) != 0:
+        i += 1
+    # find least significant non-trailing one
+    while getbit(n, i) != 1:
+        i += 1
 
-    temp = updatebit(n, most_significant_zero, True)
-    return updatebit(temp, most_significant_zero + 1, False)
+    # count the ones before (inclusive)
+    count = 0
+    tmp = n
+    for _ in range(i + 1):
+        count += tmp & 1
+        tmp >>= 1
+    # set least significant trailing one to zero
+    out = n
+    out = updatebit(n, i, False)
+
+    # free space before position i
+    mask = ~((1 << i) - 1)
+    out &= mask
+
+    # set last bits to the largest number with `count` ones
+    mask = (1 << count) - 1
+    mask = mask << (i - count)
+    return out | mask
 
 
 def next_largest(n: int) -> int:
-    first_one = 0
-    while getbit(n, first_one) != 1:
-        first_one += 1
-    # i should be callend something like least_significant_zero_after_first_one
-    # (or similar), but it's too long to write everywhere
-    i = first_one
+    i = 0
+    # skip trailing zeros
+    while getbit(n, i) == 0:
+        i += 1
+
+    # find least significant non trailing 0
     while getbit(n, i) != 0:
         i += 1
-    temp = updatebit(n, i, True)
-    return updatebit(temp, i - 1, False)
+
+    # count the ones before position i
+    count = 0
+    tmp = n
+    for _ in range(i):
+        count += tmp & 1
+        tmp >>= 1
+
+    # set position i to  one
+    out = updatebit(n, i, True)
+
+    # clear all bits before position i
+    mask = ~((1 << i) - 1)
+    out &= mask
+
+    # fill last bits with remaining ones
+    mask = (1 << (count - 1)) - 1
+    return out | mask
 
 
 def next_numbers(n: int) -> tuple[int, int]:
@@ -47,11 +83,7 @@ def next_numbers(n: int) -> tuple[int, int]:
 
 # ******************** Tests ********************
 def test_next_numbers() -> None:
-    assert next_numbers(0b1001) == (0b101, 0b1010)
-    assert next_numbers(0b11001) == (0b10101, 0b11010)
-    assert next_numbers(0b100111) == (0b10111, 0b101011)
-    assert next_numbers(0b1100110011) == (0b1010110011, 0b1100110101)
-
-    assert next_numbers(0b10) == (0b1, 0b100)
-    assert next_numbers(0b10000) == (0b1000, 0b100000)
-    assert next_numbers(0b110110) == (0b101110, 0b111010)
+    assert next_numbers(0b1000) == (0b100, 0b10000)
+    assert next_numbers(0b1111011) == (0b1110111, 0b1111101)
+    assert next_numbers(0b100100110000001) == (0b100100101100000, 0b100100110000010)
+    assert next_numbers(0b11011001111100) == (0b11011001111010, 0b11011010001111)
