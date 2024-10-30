@@ -4,7 +4,6 @@ extend-select = ["I"]
 [tool.ruff.lint.isort]
 known-first-party = ["graphs", "linkedlist"]
 
-
 [tool.mypy]
 strict = true
 
