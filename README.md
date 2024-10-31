@@ -33,6 +33,9 @@ Run the tests for each exercise.
 pytest
 ```
 
+# Skipped
+1. Chapter 6: 10
+
 # Notes
 1. The `legacy` dir is where I've stored an older version of this project. Back
    then, I was extremely motivated and challenged myself to both learn C++ and
